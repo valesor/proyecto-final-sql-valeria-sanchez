@@ -1,5 +1,6 @@
 
 **Proyecto SQL Coderhouse: Oficina de Superpoderosos**
+
 **ALUMNA: Valeria Sanchez**
 
 Este proyecto busca crear un sistema centralizado para gestionar información sobre héroes, villanos y actividades relacionadas con superpoderes. La "Oficina de Superpoderosos" servirá como un cuartel general para los defensores de la justicia, facilitando la asignación de misiones, el registro de enfrentamientos, la gestión de patrocinios y la planificación de eventos.
