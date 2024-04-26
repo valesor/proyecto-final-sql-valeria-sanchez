@@ -1,0 +1,99 @@
+Para instalar la base de datos para el proyecto "Oficina de Superpoderosos", sigue estos pasos:
+
+-----------------------------------------------------------------------------------
+1) Crear la base de datos:
+ -Abre tu cliente de MySQL o accede al servidor MySQL a través de la línea de comandos.
+ -Ejecuta el siguiente comando para crear una nueva base de datos llamada "Superpoderoso":
+
+
+ sql
+
+  CREATE DATABASE Superpoderoso;
+
+-----------------------------------------------------------------------------------
+2) Conectar a la base de datos:
+ -Después de crear la base de datos, conéctate a ella utilizando el comando:
+
+
+ sql
+ 
+  USE Superpoderoso;
+
+
+-----------------------------------------------------------------------------------
+3) Crear las tablas:
+ -Utiliza el siguiente código SQL para crear las tablas necesarias en la base de datos:
+
+
+ sql
+
+ CREATE TABLE superpoderosos (
+    id_superpoderoso INT PRIMARY KEY,
+    nombre VARCHAR(100),
+    id_tipo INT,
+    id_superpoder INT
+ );
+
+ CREATE TABLE tipo (
+    id_tipo INT PRIMARY KEY,
+    descripcion VARCHAR(255)
+ );
+
+ CREATE TABLE superpoder (
+    id_superpoder INT PRIMARY KEY,
+    descripcion VARCHAR(255)
+ );
+
+ CREATE TABLE nivel_poder (
+    id_nivel_poder INT PRIMARY KEY,
+    nivel VARCHAR(50)
+ );
+
+ CREATE TABLE misiones (
+    id_mision INT PRIMARY KEY,
+    nombre VARCHAR(100),
+    descripcion VARCHAR(255),
+    fecha_inicio DATE,
+    estado VARCHAR(50),
+    heroe_asignado INT,
+    id_nivel_poder INT,
+    FOREIGN KEY (heroe_asignado) REFERENCES superpoderosos(id_superpoderoso),
+    FOREIGN KEY (id_nivel_poder) REFERENCES nivel_poder(id_nivel_poder)
+ );
+
+ CREATE TABLE actividades_delictivas (
+    id_actividad INT PRIMARY KEY,
+    descripcion VARCHAR(255)
+ );
+
+ CREATE TABLE enfrentamientos (
+    id_enfrentamiento INT PRIMARY KEY,
+    id_heroe INT,
+    id_villano INT,
+    resultado VARCHAR(100),
+    fecha_enfrentamiento DATE,
+    id_ganador INT,
+    FOREIGN KEY (id_heroe) REFERENCES superpoderosos(id_superpoderoso),
+    FOREIGN KEY (id_villano) REFERENCES superpoderosos(id_superpoderoso),
+    FOREIGN KEY (id_ganador) REFERENCES superpoderosos(id_superpoderoso)
+);
+
+ CREATE TABLE patrocinio (
+    id_patrocinio INT PRIMARY KEY,
+    nombre VARCHAR(100),
+    monto DECIMAL(10, 2),
+    fecha_inicio DATE,
+    fecha_fin DATE,
+    id_superpoderoso INT,
+    FOREIGN KEY (id_superpoderoso) REFERENCES superpoderosos(id_superpoderoso)
+ );
+
+
+
+-----------------------------------------------------------------------------------
+4) Insertar datos:
+Una vez que las tablas están creadas, puedes insertar datos utilizando instrucciones SQL. Utiliza los datos proporcionados en la descripción del proyecto y adapta las inserciones según sea necesario.
+
+
+
+MUCHAS GRACIAS!
